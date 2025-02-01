@@ -1,0 +1,22 @@
+name: Debug Retool Request
+
+on:
+  workflow_dispatch:
+    inputs:
+      repo_name:
+        description: "Target App Repository"
+        required: false
+        type: string
+      image_tag:
+        description: "Docker Image Tag"
+        required: false
+        type: string
+
+jobs:
+  print-inputs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print Inputs
+        run: |
+          echo "Received repo_name: ${{ inputs.repo_name }}"
+          echo "Received image_tag: ${{ inputs.image_tag }}"
